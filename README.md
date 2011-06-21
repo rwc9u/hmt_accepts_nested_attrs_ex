@@ -8,8 +8,11 @@ nested attribute each time. I wanted the app to check first to see if
 the phone number already existed, if it did then I wanted to
 use that object, if it didn't then I wanted to create a new object. 
 
+The following [Stack Overflow thread](http://stackoverflow.com/questions/3579924/accepts-nested-attributes-for-with-find-or-create) helped me get started on this. Hopefully, this example with tests will also be helpful.
+
+
 At present the tests work and show how overriding the
-autosave_associated_records_for_<class_name>s will allow you to
+autosave_associated_records_for_&lt;class_name&gt;s will allow you to
 customize whether to create or use an existing record.
 
 To run the tests:
