@@ -1,0 +1,7 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  phone_number: 555-555-1212
+
+two:
+  phone_number: 555-444-1212
