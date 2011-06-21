@@ -17,7 +17,7 @@ class AddressTest < ActiveSupport::TestCase
                                         "_destroy"=>"false"}
                                     }
                                     ))
-    a.save
+    a.save!
     assert_equal "Cville", Address.find(a.id).city
     assert_equal "17032221234", Address.find(a.id).phone_numbers.first.phone_number
     assert_equal 3, PhoneNumber.count
@@ -32,7 +32,7 @@ class AddressTest < ActiveSupport::TestCase
                                         "_destroy"=>"false"}
                                     }
                                     ))
-    a.save
+    a.save!
     assert_equal "Cville", Address.find(a.id).city
     assert_equal "17032221234", Address.find(a.id).phone_numbers.first.phone_number
     b = Address.new(default_address(:address1 => "234 Test",
@@ -43,7 +43,7 @@ class AddressTest < ActiveSupport::TestCase
                                         "_destroy"=>"false"}
                                     }
                                     ))
-    b.save
+    b.save!
     assert_equal "Cville", Address.find(b.id).city
     assert_equal "17032221234", Address.find(b.id).phone_numbers.first.phone_number
     assert_equal 4, PhoneNumber.count
@@ -70,7 +70,7 @@ class AddressTest < ActiveSupport::TestCase
                                         "_destroy"=>"false"}
                                     }
                                     ))
-    a.save
+    a.save!
     assert_equal "Cville", Address.find(a.id).city
     assert_equal "17032221234", Address.find(a.id).phone_numbers.first.phone_number
     b = Address.new(default_address(:address1 => "234 Test",
@@ -81,7 +81,7 @@ class AddressTest < ActiveSupport::TestCase
                                         "_destroy"=>"false"}
                                     }
                                     ))
-    b.save
+    b.save!
     assert_equal "Cville", Address.find(b.id).city
     assert_equal "17032221234", Address.find(b.id).phone_numbers.first.phone_number
     assert_equal 3, PhoneNumber.count
