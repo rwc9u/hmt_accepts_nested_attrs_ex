@@ -2,6 +2,10 @@ require 'test_helper'
 
 class AddressTest < ActiveSupport::TestCase
 
+  def setup
+    @original_phone_number_count = PhoneNumber.count
+  end
+
   test "An address can be created with valid parameters" do
     a = Address.new(default_address)
     a.save
@@ -46,7 +50,7 @@ class AddressTest < ActiveSupport::TestCase
     b.save!
     assert_equal "Cville", Address.find(b.id).city
     assert_equal "17032221234", Address.find(b.id).phone_numbers.first.phone_number
-    assert_equal 4, PhoneNumber.count
+    assert_equal @original_phone_number_count + 2, PhoneNumber.count
     assert_equal 2, PhoneNumber.where(:phone_number => "17032221234").count
   end
 
@@ -84,7 +88,7 @@ class AddressTest < ActiveSupport::TestCase
     b.save!
     assert_equal "Cville", Address.find(b.id).city
     assert_equal "17032221234", Address.find(b.id).phone_numbers.first.phone_number
-    assert_equal 3, PhoneNumber.count
+    assert_equal @original_phone_number_count + 1, PhoneNumber.count
     assert_equal 1, PhoneNumber.where(:phone_number => "17032221234").count
   end
 
